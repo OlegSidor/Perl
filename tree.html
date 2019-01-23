@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+[% BLOCK show %]
+[% IF (item.name && item.children) || item.url %]
+<ul>
+    [% IF item.url %]
+    <li><a href="?show=[% item.url %]">[% item.name %]</a></li>
+    [% ELSE %]
+    <li><span>[% item.name %]</span></li>
+    [% END %]
+    [% IF item.children %]
+    [% FOR child IN item.children %]
+    [% PROCESS show item=child %]
+    [% END %]
+    [% END %]
+</ul>
+[% END %]
+[% END %]
+
+[% FOR item IN items %]
+[% PROCESS show item=item %]
+[% END %]
+</body>
+</html>

@@ -1,0 +1,3 @@
+name = aaaaaaa
+email = asd@asd.com
+img = denis-loebner-by-denis-loebner-art-fantasy.jpg
